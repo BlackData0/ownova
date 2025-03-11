@@ -11,6 +11,7 @@
     --card-shadow: 0 8px 32px rgba(11, 30, 70, 0.1);
     --glass-bg: rgba(255, 255, 255, 0.95);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --fluid-typography: clamp(16px, 1.5vw, 18px);
 }
 
 * {
@@ -24,13 +25,14 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
+    font-size: var(--fluid-typography);
 }
 
 /* Common Section Styles */
 .services h2, .about h2, .contact h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -71,7 +73,7 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1rem clamp(1rem, 3vw, 2rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -106,7 +108,8 @@ body {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
-    padding: 0.5rem 0;
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
+    min-height: 44px;
 }
 
 .nav-links a::after {
@@ -134,14 +137,16 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 10rem 2rem 6rem;
-    min-height: 100vh;
+    padding: 8rem 1rem 4rem;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: var(--background);
     position: relative;
     overflow: hidden;
+    flex-direction: column-reverse;
+    gap: 2rem;
 }
 
 .hero-bg {
@@ -150,7 +155,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .circuit-pattern {
@@ -182,8 +187,8 @@ body {
 }
 
 .hero-content {
-    max-width: 600px;
-    padding: 3rem;
+    max-width: 100%;
+    padding: clamp(1.5rem, 5vw, 3rem);
     position: relative;
     z-index: 1;
     background: var(--glass-bg);
@@ -194,7 +199,7 @@ body {
 }
 
 .hero-content h2 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 6vw, 4rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
@@ -222,7 +227,7 @@ body {
 }
 
 .hero-content p {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 3vw, 1.3rem);
     color: var(--light-text);
     margin-bottom: 2.5rem;
     line-height: 1.8;
@@ -230,15 +235,16 @@ body {
 
 .hero-buttons {
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
 }
 
 .secondary-button {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    padding: 1.2rem 2rem;
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
     background: transparent;
     color: var(--text-color);
     border: 2px solid var(--primary-color);
@@ -247,6 +253,7 @@ body {
     transition: var(--transition);
     font-size: 1.1rem;
     font-weight: 500;
+    min-height: 44px;
 }
 
 .secondary-button:hover {
@@ -261,8 +268,8 @@ body {
 }
 
 .tech-image {
-    width: 500px;
-    height: 400px;
+    width: auto;
+    height: 100%;
     object-fit: cover;
     border-radius: 24px;
     box-shadow: var(--card-shadow);
@@ -315,7 +322,7 @@ body {
 }
 
 .cta-button {
-    padding: 1.2rem 2.5rem;
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
     font-size: 1.1rem;
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     color: white;
@@ -327,6 +334,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    min-height: 44px;
 }
 
 .cta-button:hover {
@@ -372,6 +380,23 @@ body {
     100% { transform: scale(1); }
 }
 
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+        padding: 10rem 2rem 6rem;
+        min-height: 100vh;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hero-content {
+        max-width: 600px;
+    }
+}
+
 /* Services Section */
 .services {
     padding: 8rem 2rem;
@@ -392,17 +417,18 @@ body {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .service-card {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    padding: 3rem 2rem;
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 3vw, 2rem);
     border-radius: 24px;
     box-shadow: var(--card-shadow);
     transition: var(--transition);
@@ -534,10 +560,10 @@ body {
 .leader-profile {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: clamp(2rem, 4vw, 4rem);
     background: white;
     border-radius: 24px;
-    padding: 3rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
     box-shadow: var(--card-shadow);
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
@@ -546,8 +572,8 @@ body {
 
 .leader-image {
     flex-shrink: 0;
-    width: 300px;
-    height: 300px;
+    width: clamp(200px, 50vw, 300px);
+    height: clamp(200px, 50vw, 300px);
     border-radius: 20px;
     overflow: hidden;
     border: 4px solid var(--accent-color);
@@ -571,7 +597,7 @@ body {
 }
 
 .leader-info h3 {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
     margin-bottom: 0.5rem;
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
@@ -596,19 +622,22 @@ body {
     display: flex;
     gap: 1.5rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .social-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     color: white;
     text-decoration: none;
     border-radius: 50px;
     transition: var(--transition);
     box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+    min-height: 44px;
 }
 
 .social-link:hover {
@@ -787,7 +816,7 @@ body {
     z-index: 1;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    padding: 3rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
     border-radius: 24px;
     box-shadow: var(--card-shadow);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -801,13 +830,14 @@ body {
 
 #contact-form input,
 #contact-form textarea {
-    padding: 1.2rem;
+    padding: clamp(0.8rem, 2vw, 1.2rem);
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 102, 204, 0.1);
     border-radius: 12px;
     font-size: 1rem;
     transition: var(--transition);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    width: 100%;
 }
 
 #contact-form input:focus,
@@ -832,7 +862,7 @@ body {
 }
 
 .submit-button {
-    padding: 1.2rem 3rem;
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     color: white;
     border: none;
@@ -849,6 +879,7 @@ body {
     align-items: center;
     gap: 1rem;
     letter-spacing: 0.5px;
+    min-height: 44px;
 }
 
 .submit-button span {
@@ -918,10 +949,11 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem);
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .footer-section h3 {
@@ -958,6 +990,7 @@ body {
         flex-direction: column;
         gap: 4px;
         cursor: pointer;
+        z-index: 1000;
     }
 
     .menu-toggle span {
@@ -969,19 +1002,26 @@ body {
 
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 70px;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
         padding: 1rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 999;
     }
 
     .nav-links.active {
         display: flex;
         flex-direction: column;
         align-items: center;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .hero {
@@ -999,4 +1039,19 @@ body {
         height: 300px;
         margin-top: 2rem;
     }
+}
+
+/* Add Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Add Better Form Elements */
+input, 
+textarea,
+select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    width: 100%;
+    padding: clamp(0.8rem, 2vw, 1.2rem);
 }
