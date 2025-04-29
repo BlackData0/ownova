@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { IconCloud, IconRobot, IconBrain, IconChart } from './Icons'
+import { IconCloud, IconRobot, IconBrain, IconChart } from '@/components/Icons'
 
 const services = [
   {

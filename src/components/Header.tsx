@@ -14,7 +14,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <Image 
-              src="https://via.placeholder.com/40"
+              src="/logo.png"
               alt="Ownova Logo"
               width={40}
               height={40}

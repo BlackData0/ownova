@@ -64,9 +64,11 @@ export default function About() {
             className="relative h-[600px] rounded-2xl overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1531746790731-6bf607872178?auto=format&fit=crop&w=800"
-              alt="Team Collaboration"
+              src="/ownova-01.png"
+              alt="Ownova Team"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
