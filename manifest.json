@@ -1,0 +1,16 @@
+{
+  "name": "Ownova - AI Automation Agency",
+  "short_name": "Ownova",
+  "description": "Your trusted partner in AI automation solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1E46",
+  "theme_color": "#0B1E46",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -3,348 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#0B1E46">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Ownova - AI Automation Agency</title>
+
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Ownova - Your trusted partner in AI automation solutions. Transform your business with cutting-edge automation technology.">
+    <meta name="author" content="Ownova">
+    <meta name="keywords" content="AI automation, business automation, artificial intelligence, digital transformation, process automation, web development, app development">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Ownova - AI Automation Agency">
     <meta property="og:description" content="Ownova - Your trusted partner in AI automation solutions. Transform your business with cutting-edge automation technology.">
     <meta property="og:image" content="images/OWNOVALOGO.png">
     <meta property="og:url" content="https://ownova.org">
-    <link rel="icon" type="image/png" href="images/favicon.png">
 
-    <!-- Preload critical assets -->
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#0B1E46">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Preload Critical Assets -->
     <link rel="preload" href="images/logo.png" as="image">
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
-    
-    <!-- Existing CSS links -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="dns-prefetch" href="https://formspree.io">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
+    <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header class="header" role="banner">
-        <nav class="nav-container" role="navigation" aria-label="Main navigation">
-            <div class="logo">
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot-outline"></div>
+    <div class="cursor-dot"></div>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="/" class="logo">
                 <img src="images/logo.png" alt="Ownova Logo">
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+            </a>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main id="main-content" role="main">
+    <!-- Main Content -->
+    <main id="main-content">
         <!-- Hero Section -->
-        <section id="home" class="hero" aria-labelledby="hero-title">
-            <div class="hero-bg" aria-hidden="true">
-                <div class="circuit-pattern"></div>
-                <div class="tech-circles"></div>
-            </div>
+        <section id="home" class="hero">
             <div class="hero-content">
-                <h1 id="hero-title" class="visually-hidden">Ownova - AI Automation Agency</h1>
-                <h2>Transform Your Business<br><span class="highlight">AI Automation</span></h2>
-                <p>Unlock the power of artificial intelligence to streamline your operations and drive growth</p>
+                <h1>Transform Your Business with <span class="highlight">AI Automation</span></h1>
+                <p>Leverage cutting-edge artificial intelligence solutions to streamline your operations and accelerate growth.</p>
                 <div class="hero-buttons">
-                    <button class="cta-button">
-                        <span>Get Started</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                    <a href="#services" class="secondary-button">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/ownova-01.png" alt="AI Technology" class="tech-image">
-                <div class="hero-cards">
-                    <div class="stat-card">
-                        <i class="fas fa-brain"></i>
-                        <div class="stat-content">
-                            <span class="stat-number">99%</span>
-                            <span class="stat-label">Accuracy</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <div class="stat-content">
-                            <span class="stat-number">10x</span>
-                            <span class="stat-label">Faster</span>
-                        </div>
-                    </div>
-                </div>
+                <img src="images/ownova-01.png" alt="AI Technology Illustration" loading="lazy">
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="services" aria-labelledby="services-title">
-            <h2 id="services-title">Our Services</h2>
-            <div class="services-grid">
-                <!-- Make cards more accessible -->
-                <article class="service-card" tabindex="0">
-                    <i class="fas fa-robot" aria-hidden="true"></i>
-                    <h3>Process Automation</h3>
-                    <p>Streamline your workflows with intelligent automation solutions</p>
-                </article>
-                <article class="service-card" tabindex="0">
-                    <i class="fas fa-brain" aria-hidden="true"></i>
-                    <h3>AI Integration</h3>
-                    <p>Implement cutting-edge AI technologies into your business</p>
-                </article>
-                <article class="service-card" tabindex="0">
-                    <i class="fas fa-chart-line" aria-hidden="true"></i>
-                    <h3>Data Analytics</h3>
-                    <p>Transform your data into actionable insights</p>
-                </article>
-                <article class="service-card" tabindex="0">
-                    <i class="fas fa-code-branch" aria-hidden="true"></i>
-                    <h3>Web Development</h3>
-                     <p>Custom website tailored to your business needs</p>
-                </article>
-                <article class="service-card" tabindex="0">
-                    <i class="fas fa-microchip" aria-hidden="true"></i>
-                    <h3>App Development</h3>
-                    <p>designs, develops, and maintains applications for mobile devices</p>
-                </article>
-                <article class="service-card" tabindex="0">
-                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    <h3>Graphic Designing</h3>
-                    <p>business branding and marketing</p>
-                </article>
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="about">
-            <div class="tech-pattern"></div>
-            <h2>Why Choose Ownova</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Advanced Technology</h3>
-                    <p>Leveraging cutting-edge AI and machine learning technologies to deliver superior solutions</p>
-                    <div class="feature-bg"></div>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Rapid Innovation</h3>
-                    <p>Continuously evolving our solutions to stay ahead of industry trends and demands</p>
-                    <div class="feature-bg"></div>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Enterprise Security</h3>
-                    <p>Military-grade protection for your data and systems with advanced encryption</p>
-                    <div class="feature-bg"></div>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>Scalable Solutions</h3>
-                    <p>Flexible and scalable architectures that grow with your business needs</p>
-                    <div class="feature-bg"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Section - Enhanced -->
-        <section id="team" class="team" aria-labelledby="team-title">
-            <h2 id="team-title">Leadership</h2>
-            <div class="leader-section">
-                <article class="leader-profile">
-                    <div class="leader-image">
-                        <img 
-                            src="images/leader.jpeg" 
-                            alt="Syed Own Muhammad - Founder & CEO of Ownova"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                        >
-                    </div>
-                    <div class="leader-info">
-                        <h3>Syed Own Muhammad</h3>
-                        <p class="position">Founder & CEO</p>
-                        <p class="leader-bio">
-                            A visionary leader in AI automation and technology innovation, Syed Own Muhammad brings expertise
-                            in artificial intelligence, machine learning, and business automation. His passion for leveraging
-                            cutting-edge technology to solve complex business challenges has led to the creation of Ownova,
-                            where he leads the charge in transforming businesses through intelligent automation solutions.
-                        </p>
-                        <div class="leader-social">
-                            <a href="https://www.linkedin.com/in/syed-own-muhammad-546570211/" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="social-link"
-                               aria-label="Connect with Syed Own Muhammad on LinkedIn">
-                                <i class="fab fa-linkedin" aria-hidden="true"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="https://github.com/BlackData0" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="social-link"
-                               aria-label="Follow Syed Own Muhammad on GitHub">
-                                <i class="fab fa-github" aria-hidden="true"></i>
-                                <span>GitHub</span>
-                            </a>
+            <div class="container">
+                <h2>Why Choose Ownova</h2>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <img src="images/leader.jpeg" alt="Leadership Team" class="about-image">
+                        <div class="about-text">
+                            <p>We combine cutting-edge AI technology with deep industry expertise to deliver transformative automation solutions for your business.</p>
+                            <ul class="features-list">
+                                <li>Custom AI Solutions</li>
+                                <li>Process Automation</li>
+                                <li>24/7 Support</li>
+                                <li>Scalable Solutions</li>
+                            </ul>
                         </div>
                     </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Contact Section - Enhanced -->
-        <section id="contact" class="contact" aria-labelledby="contact-title">
-            <h2 id="contact-title">Get in Touch</h2>
-            <div class="contact-container">
-                <form id="contact-form" 
-                      action="https://formspree.io/f/mdkalayg" 
-                      method="POST"
-                      novalidate
-                      aria-label="Contact form">
-                    <div class="form-group">
-                        <label for="name" class="visually-hidden">Name</label>
-                        <input type="text" 
-                               name="name" 
-                               id="name" 
-                               placeholder="Name" 
-                               required 
-                               aria-required="true"
-                               autocomplete="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="visually-hidden">Email</label>
-                        <input type="email" 
-                               name="email" 
-                               id="email" 
-                               placeholder="Email" 
-                               required 
-                               aria-required="true"
-                               autocomplete="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="visually-hidden">Message</label>
-                        <textarea name="message" 
-                                  id="message" 
-                                  placeholder="Get in touch today to discuss your requirements." 
-                                  required 
-                                  aria-required="true"></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </form>
-            </div>
-        </section>
-        
-        <!-- Popup Message -->
-        <div id="popup-message" class="popup">
-            <p>Message submitted! We'll get back to you as soon as possible.</p>
-            <button onclick="closePopup()">OK</button>
-        </div>
-        
-        <!-- Styles for Popup -->
-        <style>
-            .popup {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: white;
-                padding: 20px;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-                border-radius: 8px;
-                text-align: center;
-                z-index: 1000;
-            }
-            .popup button {
-                margin-top: 10px;
-                padding: 5px 10px;
-                border: none;
-                background: #007BFF;
-                color: white;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-        </style>
-        
-        <!-- JavaScript -->
-        <script>
-            document.getElementById("contact-form").addEventListener("submit", async function(event) {
-                event.preventDefault(); // Prevent default form submission
-                
-                let formData = {
-                    name: document.getElementById("name").value,
-                    email: document.getElementById("email").value,
-                    message: document.getElementById("message").value
-                };
-        
-                try {
-                    let response = await fetch(this.action, {
-                        method: "POST",
-                        body: JSON.stringify(formData),
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json"
-                        }
-                    });
-        
-                    if (response.ok) {
-                        document.getElementById("popup-message").style.display = "block"; // Show custom popup
-                        this.reset(); // Clear form fields
-                    }
-                } catch (error) {
-                    alert("Something went wrong. Please check your internet connection.");
-                }
-            });
-        
-            function closePopup() {
-                document.getElementById("popup-message").style.display = "none";
-            }
-        </script>
-        
-        
-    </main>
-
-    <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Ownova</h3>
-                <p>Your trusted partner in AI automation solutions.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: ownova.org@gmail.com</p>
-                <p>Phone: +923127901969</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Ownova. All rights reserved.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-container">
+                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ownova</h3>
+                    <p>Transforming businesses through AI automation.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ownova. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Add loading attribute to non-critical scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>
