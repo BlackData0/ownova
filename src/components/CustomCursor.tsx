@@ -1,62 +1,54 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null)
-  const outlineRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const cursorX = useMotionValue(-100)
+  const cursorY = useMotionValue(-100)
+  
+  const springConfig = { damping: 25, stiffness: 700 }
+  const cursorXSpring = useSpring(cursorX, springConfig)
+  const cursorYSpring = useSpring(cursorY, springConfig)
 
   useEffect(() => {
-    const dot = dotRef.current
-    const outline = outlineRef.current
-
-    if (!dot || !outline) return
-
-    const onMouseMove = (event: MouseEvent) => {
-      const { clientX, clientY } = event
-
-      // Smooth animation using CSS transforms
-      dot.style.transform = `translate(${clientX - 4}px, ${clientY - 4}px)`
-      outline.style.transform = `translate(${clientX - 16}px, ${clientY - 16}px)`
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX)
+      cursorY.set(e.clientY)
     }
 
-    const onMouseDown = () => {
-      dot.style.transform = 'scale(0.9) translate(-50%, -50%)'
-      outline.style.transform = 'scale(1.2) translate(-50%, -50%)'
-    }
+    const handleMouseEnter = () => setIsVisible(true)
+    const handleMouseLeave = () => setIsVisible(false)
 
-    const onMouseUp = () => {
-      dot.style.transform = 'scale(1) translate(-50%, -50%)'
-      outline.style.transform = 'scale(1) translate(-50%, -50%)'
-    }
-
-    document.addEventListener('mousemove', onMouseMove)
-    document.addEventListener('mousedown', onMouseDown)
-    document.addEventListener('mouseup', onMouseUp)
+    window.addEventListener('mousemove', moveCursor)
+    window.addEventListener('mouseenter', handleMouseEnter)
+    window.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
-      document.removeEventListener('mousemove', onMouseMove)
-      document.removeEventListener('mousedown', onMouseDown)
-      document.removeEventListener('mouseup', onMouseUp)
+      window.removeEventListener('mousemove', moveCursor)
+      window.removeEventListener('mouseenter', handleMouseEnter)
+      window.removeEventListener('mouseleave', handleMouseLeave)
     }
-  }, [])
+  }, [cursorX, cursorY])
 
   return (
     <>
       <motion.div
-        ref={dotRef}
         className="cursor-dot"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        style={{
+          translateX: cursorXSpring,
+          translateY: cursorYSpring,
+          opacity: isVisible ? 1 : 0,
+        }}
       />
       <motion.div
-        ref={outlineRef}
         className="cursor-outline"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        style={{
+          translateX: cursorXSpring,
+          translateY: cursorYSpring,
+          opacity: isVisible ? 1 : 0,
+        }}
       />
     </>
   )
