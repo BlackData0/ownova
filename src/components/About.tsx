@@ -5,20 +5,20 @@ import Image from 'next/image'
 
 const features = [
   {
-    title: 'Custom AI Solutions',
-    description: 'Tailored artificial intelligence solutions designed specifically for your business needs.'
+    title: 'AI Integration',
+    description: 'Seamlessly integrate advanced machine learning models and neural networks into your workflow.'
   },
   {
     title: 'Process Automation',
-    description: 'Streamline your operations with intelligent automation that learns and adapts.'
+    description: 'Leverage cutting-edge AI algorithms to automate complex business processes with precision.'
   },
   {
-    title: '24/7 Support',
-    description: 'Round-the-clock technical support and monitoring for your AI systems.'
+    title: 'Smart Analytics',
+    description: 'Harness the power of deep learning to extract meaningful insights from your data.'
   },
   {
-    title: 'Scalable Solutions',
-    description: 'Solutions that grow with your business, from startup to enterprise scale.'
+    title: 'Adaptive Solutions',
+    description: 'Self-learning systems that evolve and improve with your business needs.'
   }
 ]
 
@@ -34,10 +34,10 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="order-2 lg:order-1"
           >
-            <h2 className="section-title mb-6">Why Choose Ownova</h2>
+            <h2 className="section-title mb-6">Advanced AI Solutions</h2>
             <p className="text-lg text-gray-600 mb-8">
-              We combine cutting-edge AI technology with deep industry expertise to deliver
-              transformative automation solutions for your business.
+              We harness the latest advancements in artificial intelligence and machine learning
+              to create intelligent automation solutions that transform your business operations.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -66,28 +66,22 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="order-1 lg:order-2"
           >
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/ownova-01.png"
-                alt="AI Technology Innovation"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-purple-500/10 to-transparent" />
-              <motion.div
-                className="absolute inset-0 flex items-end p-8 text-white"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div className="glass-card bg-black/30 p-6 rounded-xl w-full">
-                  <h3 className="text-2xl font-bold mb-2">Expert Team</h3>
-                  <p className="text-white/90">Our team of AI specialists is dedicated to your success</p>
-                </div>
-              </motion.div>
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden glass-card p-4">
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-purple-500/10 to-transparent" />
+              <div className="relative h-full w-full">
+                <Image
+                  src="/ownova-01.png"
+                  alt="AI Technology Visualization"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-white/10 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent" />
+              </div>
             </div>
           </motion.div>
         </div>
